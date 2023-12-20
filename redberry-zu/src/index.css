@@ -2,6 +2,7 @@
 :root {
   --background-color: #F3F2FA;
   --button-color: #5D37F3;
+  --mult: 1920 / 1440;
 }
 * {
   margin: 0;

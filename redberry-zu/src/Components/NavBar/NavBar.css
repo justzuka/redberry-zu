@@ -5,5 +5,10 @@
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    padding: 15px 100px 15px 100px;;
+    padding: calc(22px * var(--mult)) calc(76px * var(--mult)) calc(22px * var(--mult)) calc(76px * var(--mult));
+}
+
+.redberry-logo {
+    width: calc(150px * var(--mult));
+    height: calc(24px * var(--mult));
 }

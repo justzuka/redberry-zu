@@ -1,9 +1,10 @@
 .button {
-    padding: 10px 20px 10px 20px;
+    padding: calc(10px * var(--mult)) calc(20px * var(--mult)) calc(10px * var(--mult)) calc(20px * var(--mult));
     font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: calc(14px * var(--mult));
+    line-height: calc(20px * var(--mult));
     background-color: var(--button-color);
     color: white;
-    border-radius: 8px;
+    border-radius: calc(8px * var(--mult));
+    
 }

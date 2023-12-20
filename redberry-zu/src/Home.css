@@ -1,0 +1,27 @@
+.background {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+}
+.blog-image-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(92px * var(--mult)) calc(76px * var(--mult)) calc(28px * var(--mult)) calc(76px * var(--mult));
+}
+
+.blog-text {
+  font-weight: 700;
+  font-size: calc(64px * var(--mult));
+  line-height: calc(72px * var(--mult));
+  margin: 0px 0px calc(10px * var(--mult)) calc(10px * var(--mult));
+}
+
+.blog-image {
+  transform: scale(calc(var(--mult)));
+  margin-right: calc(70px * var(--mult));
+}
