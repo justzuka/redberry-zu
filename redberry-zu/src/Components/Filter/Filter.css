@@ -1,11 +1,58 @@
-.filter-container{
+.main-filter-container{
     display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    overflow-y: hidden;
-    
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     width: 100%;
-    gap: calc(30px * var(--mult));
+    position: relative;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: calc(30px * var(--mult));
+  padding: calc(10px * var(--mult)) calc(10px * var(--mult)) calc(10px * var(--mult)) calc(10px * var(--mult));
+}
+
+.filter-container::-webkit-scrollbar {
+  width: 200px;
+  height: 5px;
+  margin-top: 10px;
+}
+
+/* Track */
+.filter-container::-webkit-scrollbar-track {
+  background: #f1f1f110;
+}
+
+/* Handle */
+.filter-container::-webkit-scrollbar-thumb {
+  background: #8888881c;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.filter-container::-webkit-scrollbar-thumb:hover {
+  background: #55555528;
+}
+
+.left-gradient-div {
+  position: absolute;
+  left: 0;
+
+  width: calc(30px * var(--mult));
+  height: 100%;
+  background: linear-gradient(to right, var(--background-color), transparent);
+}
+
+.right-gradient-div {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: calc(30px * var(--mult));
+  background: linear-gradient(to left, var(--background-color), transparent);
 }
