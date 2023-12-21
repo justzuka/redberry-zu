@@ -19,6 +19,7 @@ const GetBlogs = async () => {
     }
 
     const data = await response.json();
+   
     return data;
   } catch (error) {
     console.error("Error making API request:", error);
@@ -26,4 +27,30 @@ const GetBlogs = async () => {
   }
 };
 
-export {GetBlogs}
+const GetCategories = async () => {
+  try {
+    const response = await fetch(
+      "https://api.blog.redberryinternship.ge/api/categories",
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log(data)
+    return data;
+  } catch (error) {
+    console.error("Error making API request:", error);
+    throw error;
+  }
+};
+
+export {GetBlogs, GetCategories}
