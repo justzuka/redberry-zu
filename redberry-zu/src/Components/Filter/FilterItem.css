@@ -1,0 +1,10 @@
+.filter-item {
+    padding: calc(8px * var(--mult)) calc(16px * var(--mult)) calc(8px * var(--mult)) calc(16px * var(--mult));
+    border-radius: calc(30px * var(--mult));
+    font-weight: 500;
+    font-size: calc(12px * var(--mult));
+    line-height: calc(16px * var(--mult));
+    height:fit-content;
+    width: fit-content;
+    white-space: nowrap;
+}

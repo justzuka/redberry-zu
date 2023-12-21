@@ -13,8 +13,8 @@ export const AppProvider = ({ children }) => {
     const fetchData = async () => {
       try {
         const categoriesData = await GetCategories();
+        console.log(categoriesData);
         setCategories(categoriesData);
-        console.log("HI");
       } catch (error) {
         console.error("Error fetching categories:", error);
       }

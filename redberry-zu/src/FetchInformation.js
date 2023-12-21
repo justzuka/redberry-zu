@@ -45,8 +45,7 @@ const GetCategories = async () => {
     }
 
     const data = await response.json();
-    console.log(data)
-    return data;
+    return data.data;
   } catch (error) {
     console.error("Error making API request:", error);
     throw error;
