@@ -12,6 +12,7 @@
   justify-content: space-between;
   align-items: center;
   padding: calc(70px * var(--mult)) 0px calc(28px * var(--mult)) 0px;
+  margin-bottom: calc(5px * var(--mult));
 }
 .page-container{
   width: 100%;
@@ -22,14 +23,14 @@
   padding: 0px calc(76px * var(--mult)) 0px calc(76px * var(--mult));
 }
 
-.blog-text {
+.main-blog-text {
   font-weight: 700;
   font-size: calc(64px * var(--mult));
   line-height: calc(72px * var(--mult));
   margin: 0px 0px calc(10px * var(--mult)) calc(10px * var(--mult));
 }
 
-.blog-image {
+.main-blog-image {
   width: calc(624px * var(--mult));
   height: calc(200px * var(--mult));
   margin-right: calc(10px * var(--mult));

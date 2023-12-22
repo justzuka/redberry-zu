@@ -20,7 +20,9 @@ const GetBlogs = async () => {
 
     const data = await response.json();
    
-    return data;
+    console.log(data.data)
+    return data.data;
+
   } catch (error) {
     console.error("Error making API request:", error);
     throw error;

@@ -4,6 +4,8 @@
     align-items: center;
     width: 100%;
     position: relative;
+    margin-top: calc(5px * var(--mult));
+    margin-bottom: calc(5px * var(--mult));
 }
 
 .filter-container {

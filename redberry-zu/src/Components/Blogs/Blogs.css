@@ -1,0 +1,15 @@
+.blogs-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    row-gap: calc(44px * var(--mult));
+    column-gap: calc(25px * var(--mult));
+    justify-content: center;
+    align-items: center;
+}
+.main-blogs-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: calc(40px * var(--mult));
+}

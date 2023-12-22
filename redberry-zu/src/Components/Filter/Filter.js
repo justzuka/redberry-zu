@@ -1,10 +1,9 @@
 import React from "react";
 import "./Filter.css";
-import { useAppContext } from "../../context";
 import { FilterItem } from "./FilterItem";
 
-export const Filter = () => {
-  const { categories } = useAppContext();
+export const Filter = ({categories}) => {
+  
   return (
     <div className="main-filter-container">
       <div className="filter-container">
