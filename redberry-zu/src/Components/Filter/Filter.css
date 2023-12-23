@@ -33,13 +33,17 @@
 
 /* Handle */
 .filter-container::-webkit-scrollbar-thumb {
-  background: #8888881c;
+  background: transparent;
   border-radius: 10px;
 }
 
-/* Handle on hover */
 .filter-container::-webkit-scrollbar-thumb:hover {
   background: #55555528;
+}
+
+.filter-container:hover::-webkit-scrollbar-thumb {
+  /* Change the color of the thumb */
+  background: #8888881c;
 }
 
 .left-gradient-div {

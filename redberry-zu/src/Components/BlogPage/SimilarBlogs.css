@@ -1,0 +1,63 @@
+.similar-blogs-container {
+    width: 100%;
+    margin-bottom: calc(20px * var(--mult));
+}
+
+.text-arrows-container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: calc(50px * var(--mult));
+    margin-bottom: calc(20px * var(--mult));
+}
+
+.similar-blogs-scroll {
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+    gap: calc(26px * var(--mult));
+}
+
+.similar-blogs-text {
+    font-weight: 700;
+    font-size: calc(32px * var(--mult));
+    line-height: calc(40px * var(--mult));
+}
+
+.scroll-arrow-button {
+    width: calc(44px * var(--mult));
+    height: calc(44px * var(--mult));
+    border-radius: calc(24px *var(--mult));
+    background-color: var(--button-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll-arrow {
+    width: calc(16px * var(--mult));
+    height: calc(16px * var(--mult));
+    color: white;
+}
+
+.rotate180 {
+    transform: rotate(180deg);
+}
+
+.scroll-arrows{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: calc(25px * var(--mult))
+}
+
+.scroll-arrow-button-disabled {
+    background-color: var(--disabled-arrow-button);
+}

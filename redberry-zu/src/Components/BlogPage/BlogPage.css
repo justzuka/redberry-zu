@@ -1,0 +1,27 @@
+.blog-page-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px calc(76px * var(--mult)) 0px calc(76px * var(--mult));
+    position: relative;
+}
+
+.back-home{
+    width: calc(44px * var(--mult));
+    height: calc(44px * var(--mult));
+    border-radius: calc(24px *var(--mult));
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: calc(76px * var(--mult));
+    top: calc(46px * var(--mult));
+}
+
+.back-arrow {
+    width: calc(16px * var(--mult));
+    height: calc(16px * var(--mult));
+}

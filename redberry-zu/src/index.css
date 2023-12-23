@@ -5,7 +5,8 @@
   --mult: 1920 / 1440;
   --main-text-color: #1a1a1f;
   --date-text-color: #85858d;
-  --blog-description-text-color: #404049
+  --blog-description-text-color: #404049;
+  --disabled-arrow-button: #E4E3EB;
 }
 * {
   user-select: none;
@@ -18,4 +19,8 @@
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--background-color);
 }

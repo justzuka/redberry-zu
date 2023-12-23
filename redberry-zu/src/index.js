@@ -5,6 +5,7 @@ import Home from "./Home";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NavBar } from "./Components/NavBar/NavBar";
 import { AppProvider } from "./context";
+import BlogPage from "./Components/BlogPage/BlogPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,6 +15,7 @@ root.render(
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/blog/:id" element={<BlogPage />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
