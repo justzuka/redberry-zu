@@ -1,8 +1,30 @@
-import React from 'react'
-import "./FilterItem.css"
+import React from "react";
+import "./FilterItem.css";
+import "../../index.css";
+import { useAppContext } from "../../context";
 
-export const FilterItem = ({title, backgroundColor, textColor}) => {
+export const FilterItem = ({
+  title,
+  backgroundColor,
+  textColor,
+  isInteractive,
+  isSelected,
+  index,
+}) => {
+  const { setCategorySelected } = useAppContext();
+
   return (
-    <div className='filter-item' style={{ backgroundColor: `${backgroundColor}14`, color: backgroundColor }}>{title}</div>
-  )
-}
+    <div
+      onClick={() => setCategorySelected(index)}
+      className={`filter-item ${
+        isInteractive ? "filter-item-interactive" : ""
+      } ${isSelected ? "filter-item-selected" : ""}`}
+      style={{
+        backgroundColor: `${backgroundColor}14`,
+        color: backgroundColor,
+      }}
+    >
+      {title}
+    </div>
+  );
+};

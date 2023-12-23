@@ -4,7 +4,7 @@ import { Filter } from "./Components/Filter/Filter";
 import { useAppContext } from "./context";
 import Blogs from "./Components/Blogs/Blogs";
 function Home() {
-  const { categories, blogs } = useAppContext();
+  const { categories, selectedCategories,filteredBlogs } = useAppContext();
   return (
     <div className="background">
       <div className="page-container">
@@ -17,8 +17,8 @@ function Home() {
             alt="REDBERRY_IMAGE_LOGO"
           />
         </div>
-        <Filter categories={categories}/>
-        <Blogs blogs={blogs}/>
+        <Filter categories={categories} selectedCategories={selectedCategories} isInteractive={true} />
+        <Blogs blogs={filteredBlogs} />
       </div>
     </div>
   );

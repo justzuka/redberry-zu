@@ -8,6 +8,7 @@
   --blog-description-text-color: #404049
 }
 * {
+  user-select: none;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
