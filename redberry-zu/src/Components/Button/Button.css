@@ -8,3 +8,7 @@
     border-radius: calc(8px * var(--mult));
     
 }
+.button-full-width {
+    width: 100%;
+    text-align: center;
+}

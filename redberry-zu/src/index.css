@@ -7,6 +7,15 @@
   --date-text-color: #85858d;
   --blog-description-text-color: #404049;
   --disabled-arrow-button: #E4E3EB;
+
+  --inside-selected-field-color: #F7F7FF;
+  --inside-errored-field-color: #FAF2F3;
+  --inside-correct-field-color: #F8FFF8;
+
+  --border-selected-field-color: #5d37f3;
+  --border-correct-field-color: #14D81C;
+  --border-errored-field-color: #EA1919;
+  
 }
 * {
   user-select: none;
