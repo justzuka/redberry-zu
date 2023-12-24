@@ -11,4 +11,5 @@
 .button-full-width {
     width: 100%;
     text-align: center;
+    margin-top: calc(15px * var(--mult));
 }

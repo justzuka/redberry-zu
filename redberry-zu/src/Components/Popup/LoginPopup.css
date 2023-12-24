@@ -13,7 +13,7 @@
 
 .popup-container {
     width: calc(480px * var(--mult));
-    height: calc(272px * var(--mult));
+    min-height: calc(272px * var(--mult));
     background-color: white;
     border-radius: calc(12px * var(--mult));
     padding: calc(24px * var(--mult));
@@ -21,7 +21,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: calc(15px * var(--mult))
 }
 
 .x-back-button-container {
@@ -39,4 +38,15 @@
     font-weight: 700;
     font-size: calc(24px * var(--mult));
     line-height: calc(32px * var(--mult));
+    margin-bottom: calc(15px * var(--mult));
+}
+
+.x-back-icon {
+    width: calc(24px * var(--mult));
+    height: calc(24px * var(--mult));
+}
+
+.tick-circle {
+    width: calc(64px * var(--mult));
+    height: calc(64px * var(--mult));
 }

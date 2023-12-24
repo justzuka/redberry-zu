@@ -11,6 +11,21 @@ export const AppProvider = ({ children }) => {
   const [categoryIndexToId, setCategoryIndexToId] = useState([]);
   const [blogs, setBlogs] = useState([]);
   const [filteredBlogs, setFilteredBlogs] = useState([]);
+  const [user, setUser] = useState("");
+  const [selectedCaregoriesFinishSet, setSelectedCaregoriesFinishSet] =
+    useState(false);
+
+  const LoginUser = (email) => {
+    localStorage.setItem("userEmail", email);
+    setUser(email);
+  };
+
+  useEffect(() => {
+    const storedEmail = localStorage.getItem("userEmail");
+    if (storedEmail) {
+      setUser(storedEmail);
+    }
+  }, []);
 
   const setCategorySelected = (index) => {
     const newSelectedCategories = [...selectedCategories];
@@ -19,11 +34,22 @@ export const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    
     const fetchCategories = async () => {
       try {
         const categoriesData = await GetCategories();
-        setSelectedCategories(categoriesData.map(() => false));
+
+        const storedSelectedCategories = JSON.parse(
+          localStorage.getItem("selectedCategories")
+        );
+
+        // Update state if storedCategories is not null, else give default value
+        if (storedSelectedCategories !== null) {
+          setSelectedCategories(storedSelectedCategories);
+        } else {
+          setSelectedCategories(categoriesData.map(() => false));
+        }
+        setSelectedCaregoriesFinishSet(true);
+
         setCategoryIndexToId(categoriesData.map((category) => category.id));
         setCategories(categoriesData);
       } catch (error) {
@@ -33,7 +59,7 @@ export const AppProvider = ({ children }) => {
     const fetchBlogs = async () => {
       try {
         const blogsData = await GetBlogs();
-       
+
         setBlogs(blogsData);
       } catch (error) {
         console.error("Error fetching blogs:", error);
@@ -59,6 +85,17 @@ export const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    // Save selectedCategories to localStorage
+    if (selectedCaregoriesFinishSet) {
+      console.log(selectedCategories);
+      localStorage.setItem(
+        "selectedCategories",
+        JSON.stringify(selectedCategories)
+      );
+    }
+  }, [selectedCategories]);
+
+  useEffect(() => {
     setFilteredBlogs([...blogs].filter((blog) => isBlogInFilter(blog)));
   }, [blogs, selectedCategories]);
 
@@ -81,9 +118,9 @@ export const AppProvider = ({ children }) => {
   };
 
   const getSimilarBlogs = (main_blog) => {
-    console.log("HERE")
-    console.log(blogs)
-    console.log(main_blog)
+    console.log("HERE");
+    console.log(blogs);
+    console.log(main_blog);
     return blogs
       .map((blog) => ({
         ...blog,
@@ -102,6 +139,8 @@ export const AppProvider = ({ children }) => {
         blogs,
         getSimilarBlogs,
         setCategorySelected,
+        LoginUser,
+        user,
       }}
     >
       {children}

@@ -4,9 +4,11 @@ import "./NavBar.css";
 import { Button } from "../Button/Button";
 import LoginPopup from "../Popup/LoginPopup";
 import { FieldErrorProvider } from "../../FieldErrorContext";
+import { useAppContext } from "../../context";
 
 export const NavBar = () => {
   const [showLogin, setShowLogin] = useState(false);
+  const { user } = useAppContext();
 
   return (
     <FieldErrorProvider>
@@ -18,8 +20,8 @@ export const NavBar = () => {
         )}
         <REDBERRY_LOGO className="redberry-logo" />
         <Button
-          text={"შესვლა"}
-          onClick={() => setShowLogin(!showLogin)}
+          text={user === "" ? "შესვლა" : "დაამატე ბლოგი"}
+          onClick={user === "" ? () => setShowLogin(!showLogin) : () => {}}
         ></Button>
       </div>
     </FieldErrorProvider>

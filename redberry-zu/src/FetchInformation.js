@@ -19,9 +19,8 @@ const GetBlogs = async () => {
     }
 
     const data = await response.json();
-   
-    return data.data;
 
+    return data.data;
   } catch (error) {
     console.error("Error making API request:", error);
     throw error;
@@ -56,7 +55,7 @@ const GetCategories = async () => {
 const GetBlogById = async (id) => {
   try {
     const response = await fetch(
-      "https://api.blog.redberryinternship.ge/api/blogs/" + id, 
+      "https://api.blog.redberryinternship.ge/api/blogs/" + id,
       {
         method: "GET",
         headers: {
@@ -71,13 +70,39 @@ const GetBlogById = async (id) => {
     }
 
     const data = await response.json();
-   
-    return data;
 
+    return data;
   } catch (error) {
     console.error("Error making API request:", error);
     throw error;
   }
 };
 
-export {GetBlogs, GetCategories, GetBlogById}
+const Login = async (email) => {
+  try {
+    const response = await fetch(
+      "https://api.blog.redberryinternship.ge/api/login",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+        }),
+      }
+    );
+    console.log(response.status);
+    if (response.status === 204) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    console.error("Error making login API request:", error);
+    throw error;
+  }
+};
+
+export { GetBlogs, GetCategories, GetBlogById, Login };

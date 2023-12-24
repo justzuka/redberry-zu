@@ -24,3 +24,35 @@
   border: calc(1.5px * var(--mult)) solid var(--border-selected-field-color);
   background-color: var(--inside-selected-field-color);
 }
+
+.email-field-error {
+  outline: none;
+  padding: calc(8px * var(--mult));
+  font-size: calc(16px * var(--mult));
+  border-radius: calc(12px * var(--mult));
+  width: 100%;
+  
+  border: calc(1.5px * var(--mult)) solid var(--border-errored-field-color);
+  background-color: var(--inside-errored-field-color);
+}
+
+.email-login-error-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: calc(5px * var(--mult));
+}
+
+.email-login-error-text {
+  color: var(--border-errored-field-color);
+  font-weight: 400;
+  font-size: calc(12px * var(--mult));
+  line-height: calc(20px * var(--mult));
+  margin-left: calc(8px * var(--mult));
+}
+
+.info-circle {
+  width: calc(20px * var(--mult));
+  height: calc(20px * var(--mult));
+}

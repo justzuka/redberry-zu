@@ -15,7 +15,7 @@ export const FilterItem = ({
 
   return (
     <div
-      onClick={() => setCategorySelected(index)}
+      onClick={isInteractive ? () => setCategorySelected(index) : () => {}}
       className={`filter-item ${
         isInteractive ? "filter-item-interactive" : ""
       } ${isSelected ? "filter-item-selected" : ""}`}
