@@ -5,7 +5,7 @@ import { ReactComponent as TICK_CIRCLE} from "../../Image_SVG_Resources/tick-cir
 import EmailField from "./EmailField";
 import { useAppContext } from "../../context";
 import { Button } from "../Button/Button";
-import XButton from "../XButton/XButton";
+import CloseButton from "../CloseButton/CloseButton";
 
 
 const LoginPopup = ({ closePopup }) => {
@@ -14,7 +14,7 @@ const LoginPopup = ({ closePopup }) => {
     <div className="popup-background">
       <div className="popup-container">
         <div className="x-back-button-container">
-          <XButton onClick={closePopup}></XButton>
+          <CloseButton onClick={closePopup} />
         </div>
         {user === "" ? (
           <>

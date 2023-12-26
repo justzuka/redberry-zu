@@ -11,7 +11,7 @@ export const AppProvider = ({ children }) => {
   const [categoryIndexToId, setCategoryIndexToId] = useState([]);
   const [blogs, setBlogs] = useState([]);
   const [filteredBlogs, setFilteredBlogs] = useState([]);
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(undefined);
   const [selectedCaregoriesFinishSet, setSelectedCaregoriesFinishSet] =
     useState(false);
 
@@ -24,6 +24,8 @@ export const AppProvider = ({ children }) => {
     const storedEmail = localStorage.getItem("userEmail");
     if (storedEmail) {
       setUser(storedEmail);
+    } else {
+      setUser("");
     }
   }, []);
 
@@ -59,8 +61,14 @@ export const AppProvider = ({ children }) => {
     const fetchBlogs = async () => {
       try {
         const blogsData = await GetBlogs();
+        const today = new Date();
 
-        setBlogs(blogsData);
+        setBlogs(
+          blogsData.filter((blog) => {
+            const publishDate = new Date(blog.publish_date);
+            return publishDate < today.setDate(today.getDate() - 1);
+          })
+        );
       } catch (error) {
         console.error("Error fetching blogs:", error);
       }
@@ -129,8 +137,6 @@ export const AppProvider = ({ children }) => {
       .filter((blog) => blog.similarity !== 0)
       .sort((a, b) => b.similarity - a.similarity);
   };
-
-  
 
   return (
     <AppContext.Provider

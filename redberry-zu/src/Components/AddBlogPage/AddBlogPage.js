@@ -6,6 +6,7 @@ import "../BlogPage/BlogPage.css";
 import InputField from "../InputField/InputField";
 import { useAppContext } from "../../context";
 import ImageUploader from "../ImageUploader/ImageUploader";
+import CustomDatePicker from "../DatePicker/CustomDatePicker";
 
 const authorValidations = [
   {
@@ -67,7 +68,7 @@ const AddBlogPage = () => {
     if (user === "") {
       handleNavigateToHome();
     }
-  }, []);
+  }, [user]);
 
   return (
     <div className="add-blog-page-container">
@@ -96,6 +97,9 @@ const AddBlogPage = () => {
           validations={descriptionValidations}
           isTextArea={true}
         />
+        <div className="date-category-row">
+          <CustomDatePicker />
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,42 @@
+.date-picker-container {
+  width: calc(288px * var(--mult));
+  display: flex;
+  flex-direction: column;
+  margin-top: calc(10px * var(--mult));
+  margin-bottom: calc(10px * var(--mult));
+}
+
+.date-picker-field {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+.calendar-text {
+  font-weight: 400;
+  font-size: calc(14px * var(--mult));
+  line-height: calc(20px * var(--mult));
+}
+.placeholder-text {
+  color: var(--date-text-color);
+}
+
+.calendar-icon {
+  width: calc(20px * var(--mult));
+  height: calc(20px * var(--mult));
+  margin-right: calc(10px * var(--mult));
+}
+
+.input-field-focused {
+  outline: none;
+  padding: calc(12px * var(--mult));
+  font-size: calc(16px * var(--mult));
+  border: calc(1.5px * var(--mult)) solid #ccc;
+  border-radius: calc(12px * var(--mult));
+  width: 100%;
+  height: calc(44px * var(--mult));
+  margin-bottom: calc(7px * var(--mult));
+  border: calc(1.5px * var(--mult)) solid var(--border-selected-field-color);
+  background-color: var(--inside-selected-field-color);
+}

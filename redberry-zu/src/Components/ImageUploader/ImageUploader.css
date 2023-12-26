@@ -50,6 +50,7 @@
   align-items: center;
   justify-content: center;
   transition: height 0.3s, background-color 0.3s;
+  cursor: pointer;
 }
 
 .drag-drop-box.shrink {
@@ -80,6 +81,7 @@
   font-size: calc(14px * var(--mult));
   line-height: calc(20px * var(--mult));
   text-decoration: underline;
+  margin-left: calc(5px * var(--mult));
 }
 .selected-image {
   height: 100px;

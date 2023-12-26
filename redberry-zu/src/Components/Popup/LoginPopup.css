@@ -32,6 +32,17 @@
 
 .x-back-button {
     right: 0;
+    transition: all .3s ease;
+    width: calc(40px * var(--mult));
+    height: calc(40px * var(--mult));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: calc(30px * var(--mult));
+}
+
+.x-back-button:hover {
+    background-color: #F5F4F9;
 }
 
 .login-text {

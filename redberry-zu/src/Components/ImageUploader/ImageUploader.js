@@ -4,6 +4,7 @@ import "./ImageUploader.css";
 import { ReactComponent as FOLDER_ADD } from "../../Image_SVG_Resources/folder-add.svg";
 
 import { ReactComponent as GALLERY } from "../../Image_SVG_Resources/gallery.svg";
+import CloseButton from "../CloseButton/CloseButton";
 
 const ImageUploader = () => {
   const [image, setImage] = useState(null);
@@ -39,9 +40,7 @@ const ImageUploader = () => {
         <div className="image-details">
           <GALLERY className="gallery-icon" />
           <div className="image-name">{image.name}</div>
-          <div className="remove-image" onClick={handleRemoveImage}>
-            &#x2716;
-          </div>
+          <CloseButton onClick={handleRemoveImage}/>
         </div>
       ) : (
         <div className={`image-uploader-container ${image ? "shrink" : ""}`}>
