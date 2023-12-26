@@ -130,6 +130,8 @@ export const AppProvider = ({ children }) => {
       .sort((a, b) => b.similarity - a.similarity);
   };
 
+  
+
   return (
     <AppContext.Provider
       value={{

@@ -1,0 +1,65 @@
+.input-field-container {
+  width: calc(288px * var(--mult));
+  display: flex;
+  flex-direction: column;
+  margin-top: calc(10px * var(--mult));
+  margin-bottom: calc(10px * var(--mult));
+}
+.input-label {
+  display: block;
+  margin-bottom: calc(8px * var(--mult));
+
+  font-weight: 500;
+  font-size: calc(14px * var(--mult));
+  line-height: calc(20px * var(--mult));
+}
+
+.input-field {
+  outline: none;
+  padding: calc(8px * var(--mult));
+  font-size: calc(16px * var(--mult));
+  border: calc(1.5px * var(--mult)) solid #ccc;
+  border-radius: calc(12px * var(--mult));
+  width: 100%;
+  height: calc(44px * var(--mult));
+  margin-bottom: calc(7px * var(--mult));
+}
+
+.input-field:focus {
+  border: calc(1.5px * var(--mult)) solid var(--border-selected-field-color);
+  background-color: var(--inside-selected-field-color);
+}
+
+.input-field-error {
+  outline: none;
+  padding: calc(8px * var(--mult));
+  font-size: calc(16px * var(--mult));
+  border-radius: calc(12px * var(--mult));
+  width: 100%;
+  height: calc(44px * var(--mult));
+  margin-bottom: calc(7px * var(--mult));
+
+  border: calc(1.5px * var(--mult)) solid var(--border-errored-field-color);
+  background-color: var(--inside-errored-field-color);
+}
+
+.input-field-correct {
+  outline: none;
+  padding: calc(8px * var(--mult));
+  font-size: calc(16px * var(--mult));
+  border-radius: calc(12px * var(--mult));
+  width: 100%;
+  height: calc(44px * var(--mult));
+  margin-bottom: calc(7px * var(--mult));
+
+  border: calc(1.5px * var(--mult)) solid var(--border-correct-field-color);
+  background-color: var(--inside-correct-field-color);
+}
+
+.is-text-area {
+    min-height: calc(124px * var(--mult));
+}
+
+.input-field-container.is-text-area {
+    width: 100%;
+}

@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NavBar } from "./Components/NavBar/NavBar";
 import { AppProvider } from "./context";
 import BlogPage from "./Components/BlogPage/BlogPage";
+import AddBlogPage from "./Components/AddBlogPage/AddBlogPage";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,6 +18,7 @@ root.render(
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog/:id" element={<BlogPage />} />
+          <Route path="/addBlog" element={<AddBlogPage />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>

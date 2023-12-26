@@ -1,0 +1,16 @@
+.validation {
+    /* margin-top: calc(.5px * var(--mult));
+    margin-bottom: calc(2px * var(--mult)); */
+    font-weight: 400;
+    font-size: calc(12px * var(--mult));
+    line-height: calc(20px * var(--mult));
+    color: var(--date-text-color);
+}
+
+.validation-error {
+    color: var(--border-errored-field-color);
+}
+
+.validation-correct {
+    color: var(--border-correct-field-color);
+}

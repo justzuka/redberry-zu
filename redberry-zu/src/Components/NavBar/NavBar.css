@@ -8,6 +8,10 @@
     padding: calc(22px * var(--mult)) calc(76px * var(--mult)) calc(22px * var(--mult)) calc(76px * var(--mult));
 }
 
+.navbar-center {
+    justify-content: center;
+}
+
 .redberry-logo {
     width: calc(150px * var(--mult));
     height: calc(24px * var(--mult));
