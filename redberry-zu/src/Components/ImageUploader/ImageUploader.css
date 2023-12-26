@@ -1,0 +1,126 @@
+.image-uploader-container {
+  width: 100%;
+  height: calc(180px * var(--mult));
+  border: calc(2px * var(--mult)) dashed var(--date-text-color);
+  position: relative;
+  transition: height 0.3s, background-color 0.3s;
+  border-radius: calc(12px * var(--mult));
+  background-color: #f4f3ff;
+  margin-bottom: calc(10px * var(--mult));
+}
+
+.image-uploader-container.shrink {
+  height: 100px;
+  background-color: #f0f0f0;
+}
+
+.drag-drop-container,
+.selected-image-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: height 0.3s, background-color 0.3s;
+}
+
+.drag-drop-container.shrink,
+.selected-image-container.shrink {
+  height: 100px;
+}
+
+.upload-label {
+  display: block;
+  margin-bottom: calc(8px * var(--mult));
+
+  font-weight: 500;
+  font-size: calc(14px * var(--mult));
+  line-height: calc(20px * var(--mult));
+}
+
+.file-input {
+  display: none;
+}
+
+.drag-drop-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: height 0.3s, background-color 0.3s;
+}
+
+.drag-drop-box.shrink {
+  height: 100px;
+  background-color: grey;
+}
+
+.box-content {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: calc(20px * var(--mult));
+}
+
+.drag-drop-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  font-size: calc(14px * var(--mult));
+  line-height: calc(20px * var(--mult));
+}
+.drag-drop-text-dark {
+  font-weight: 500;
+  font-size: calc(14px * var(--mult));
+  line-height: calc(20px * var(--mult));
+  text-decoration: underline;
+}
+.selected-image {
+  height: 100px;
+}
+
+.image-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: calc(56px * var(--mult));
+  padding: calc(20px * var(--mult));
+  border-radius: calc(12px * var(--mult));
+  background-color: #F2F2FA;
+  margin-bottom: calc(10px * var(--mult));
+}
+
+.image-icon {
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.image-name {
+  flex-grow: 1;
+  margin-right: 8px;
+}
+
+.remove-image {
+  cursor: pointer;
+  font-size: 20px;
+  color: red;
+}
+
+.folder-add {
+    width: calc(40px * var(--mult));
+    height: calc(40px * var(--mult));
+}
+
+.gallery-icon {
+    width: calc(24px * var(--mult));
+    height: calc(24px * var(--mult));
+    margin-right: calc(10px * var(--mult));
+    
+}

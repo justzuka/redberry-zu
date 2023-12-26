@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "../BlogPage/BlogPage.css";
 import InputField from "../InputField/InputField";
 import { useAppContext } from "../../context";
+import ImageUploader from "../ImageUploader/ImageUploader";
 
 const authorValidations = [
   {
@@ -76,6 +77,7 @@ const AddBlogPage = () => {
 
       <div className="add-blog-container">
         <div className="add-blog-text">ბლოგის დამატება</div>
+        <ImageUploader />
         <div className="author-title-row">
           <InputField
             placeholder={"შეიყვანეთ ავტორი"}

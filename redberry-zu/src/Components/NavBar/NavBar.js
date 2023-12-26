@@ -22,6 +22,15 @@ export const NavBar = () => {
     });
   };
 
+  const handleNavigateToHome = () => {
+    navigate(`/`);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <FieldErrorProvider>
       <div
@@ -42,7 +51,10 @@ export const NavBar = () => {
             text={user === "" ? "შესვლა" : "დაამატე ბლოგი"}
             onClick={
               user === ""
-                ? () => setShowLogin(!showLogin)
+                ? () => {
+                    setShowLogin(!showLogin);
+                    handleNavigateToHome();
+                  }
                 : handleNavigateToAddBlog
             }
           ></Button>

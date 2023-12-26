@@ -5,6 +5,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: white;
+    border: calc(1px * var(--mult)) solid #E4E3EB;
     padding: calc(22px * var(--mult)) calc(76px * var(--mult)) calc(22px * var(--mult)) calc(76px * var(--mult));
 }
 
