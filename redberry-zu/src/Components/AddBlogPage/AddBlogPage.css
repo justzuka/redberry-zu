@@ -29,4 +29,11 @@
   align-items: flex-start;
 }
 
+.date-category-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 

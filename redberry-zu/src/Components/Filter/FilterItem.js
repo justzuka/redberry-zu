@@ -1,7 +1,7 @@
 import React from "react";
 import "./FilterItem.css";
 import "../../index.css";
-import { useAppContext } from "../../context";
+import { ReactComponent as X } from "../../Image_SVG_Resources/x_white.svg";
 
 export const FilterItem = ({
   title,
@@ -10,21 +10,23 @@ export const FilterItem = ({
   isInteractive,
   isSelected,
   index,
+  onClick,
+  hasMargin,
+  correctColors,
+  hasX,
 }) => {
-  const { setCategorySelected } = useAppContext();
-
   return (
     <div
-      onClick={isInteractive ? () => setCategorySelected(index) : () => {}}
-      className={`filter-item ${
+      onClick={isInteractive ? onClick : () => {}}
+      className={`filter-item ${hasMargin ? "filter-item-margin" : ""} ${
         isInteractive ? "filter-item-interactive" : ""
       } ${isSelected ? "filter-item-selected" : ""}`}
       style={{
-        backgroundColor: `${backgroundColor}14`,
-        color: backgroundColor,
+        backgroundColor: `${backgroundColor}${correctColors ? "" : "14"}`,
+        color: `${correctColors ? textColor : backgroundColor}`,
       }}
     >
-      {title}
+      {hasX ? <>{title} <X className="x-filter-item" /></> : title}
     </div>
   );
 };

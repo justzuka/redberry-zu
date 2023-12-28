@@ -7,6 +7,7 @@ import InputField from "../InputField/InputField";
 import { useAppContext } from "../../context";
 import ImageUploader from "../ImageUploader/ImageUploader";
 import CustomDatePicker from "../DatePicker/CustomDatePicker";
+import CategorySelector from "../CategorySelector/CategorySelector";
 
 const authorValidations = [
   {
@@ -99,6 +100,7 @@ const AddBlogPage = () => {
         />
         <div className="date-category-row">
           <CustomDatePicker />
+          <CategorySelector label_text={"აირჩიეთ კატეგორია"}/>
         </div>
       </div>
     </div>

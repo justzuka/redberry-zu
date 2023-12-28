@@ -1,8 +1,10 @@
 import React from "react";
 import "./Filter.css";
 import { FilterItem } from "./FilterItem";
+import { useAppContext } from "../../context";
 
 export const Filter = ({ categories, selectedCategories, isInteractive }) => {
+  const { setCategorySelected } = useAppContext();
   return (
     <div className="main-filter-container">
       <div className="filter-container">
@@ -16,6 +18,7 @@ export const Filter = ({ categories, selectedCategories, isInteractive }) => {
               textColor={category.text_color}
               title={category.title}
               index={index}
+              onClick={() => setCategorySelected(index)}
             />
           );
         })}

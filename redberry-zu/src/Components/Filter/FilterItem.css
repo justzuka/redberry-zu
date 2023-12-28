@@ -8,6 +8,9 @@
   height: fit-content;
   width: fit-content;
   white-space: nowrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .filter-item-interactive {
@@ -18,4 +21,21 @@
   border: calc(1px * var(--mult));
   border-color: black;
   border-style: solid;
+}
+
+.filter-item-margin {
+  margin: calc(5px * var(--mult));
+}
+
+.x-filter-item{
+  width: calc(16px * var(--mult));
+  height: calc(16px * var(--mult));
+  margin-left: calc(7px * var(--mult));
+  fill: white;
+  
+}
+.title-x {
+  display: flex;
+  fill: white;
+
 }
