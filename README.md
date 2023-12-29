@@ -4,4 +4,4 @@ Redberry-ZU is a web app that allows users to create and add blogs. It is a boot
 
 ## Demo
 
-You can see a live demo of the app here: [https://redberry-zu.netlify.app](https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/)
+You can see a live demo of the app here: [https://redberry-zu.netlify.app](https://redberry-zu.netlify.app)
