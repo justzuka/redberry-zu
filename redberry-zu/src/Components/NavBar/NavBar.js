@@ -3,7 +3,6 @@ import { ReactComponent as REDBERRY_LOGO } from "../../Image_SVG_Resources/REDBE
 import "./NavBar.css";
 import { Button } from "../Button/Button";
 import LoginPopup from "../Popup/LoginPopup";
-import { FieldErrorProvider } from "../../FieldErrorContext";
 import { useAppContext } from "../../context";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -32,7 +31,7 @@ export const NavBar = () => {
   };
 
   return (
-    <FieldErrorProvider>
+   
       <div
         className={`navbar-container ${
           location.pathname === "/addBlog" ? "navbar-center" : ""
@@ -60,6 +59,5 @@ export const NavBar = () => {
           ></Button>
         )}
       </div>
-    </FieldErrorProvider>
   );
 };

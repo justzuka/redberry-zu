@@ -5,11 +5,32 @@
     line-height: calc(20px * var(--mult));
     background-color: var(--button-color);
     color: white;
-    border-radius: calc(8px * var(--mult));
-    
+    border-radius: calc(8px * var(--mult));   
 }
+
+.button:hover {
+    background-color: var(--button-color-dark);
+}
+
+.button-disabled {
+    padding: calc(10px * var(--mult)) calc(20px * var(--mult)) calc(10px * var(--mult)) calc(20px * var(--mult));
+    font-weight: 500;
+    font-size: calc(14px * var(--mult));
+    line-height: calc(20px * var(--mult));
+    color: white;
+    border-radius: calc(8px * var(--mult));   
+    background-color: var(--disabled-arrow-button);
+}
+
 .button-full-width {
     width: 100%;
     text-align: center;
     margin-top: calc(15px * var(--mult));
+}
+
+.add-blog-width {
+    width: calc(288px * var(--mult));
+    text-align: center;
+    margin-top: calc(10px * var(--mult));
+    margin-bottom: calc(10px * var(--mult));
 }

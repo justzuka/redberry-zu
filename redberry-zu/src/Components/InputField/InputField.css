@@ -57,9 +57,34 @@
 }
 
 .is-text-area {
-    min-height: calc(124px * var(--mult));
+  min-height: calc(124px * var(--mult));
+  resize: none;
+}
+
+.is-text-area::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+.is-text-area::-webkit-scrollbar-track {
+  background: #f1f1f110;
+}
+
+/* Handle */
+.is-text-area::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.is-text-area::-webkit-scrollbar-thumb:hover {
+  background: #55555528;
+}
+
+.is-text-area:hover::-webkit-scrollbar-thumb {
+  /* Change the color of the thumb */
+  background: #8888885d;
 }
 
 .input-field-container.is-text-area {
-    width: 100%;
+  width: 100%;
 }

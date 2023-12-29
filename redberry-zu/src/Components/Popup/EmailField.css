@@ -38,6 +38,18 @@
   background-color: var(--inside-errored-field-color);
 }
 
+.email-field-correct {
+  outline: none;
+  padding: calc(8px * var(--mult));
+  font-size: calc(16px * var(--mult));
+  border-radius: calc(12px * var(--mult));
+  width: 100%;
+  height: calc(44px * var(--mult));
+  
+  border: calc(1.5px * var(--mult)) solid var(--border-correct-field-color);
+  background-color: var(--inside-correct-field-color);
+}
+
 .email-login-error-container {
   display: flex;
   width: 100%;
@@ -57,4 +69,8 @@
 .info-circle {
   width: calc(20px * var(--mult));
   height: calc(20px * var(--mult));
+}
+
+.add-blog-width {
+  width: calc(288px * var(--mult));
 }

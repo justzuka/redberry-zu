@@ -1,8 +1,15 @@
-import React from 'react'
-import "./Button.css"
+import React from "react";
+import "./Button.css";
 
-export const Button = ({text, onClick, isFullWidth}) => {
+export const Button = ({ text, onClick, isFullWidth, addBlog, isDisabled }) => {
   return (
-    <div className={`button ${isFullWidth ? 'button-full-width' : ''}`} onClick={onClick}>{text}</div>
-  )
-}
+    <div
+      className={`${isDisabled ? "button-disabled" : "button"} ${
+        addBlog ? "add-blog-width" : ""
+      } ${isFullWidth ? "button-full-width" : ""}`}
+      onClick={onClick}
+    >
+      {text}
+    </div>
+  );
+};

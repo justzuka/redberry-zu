@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./AddBlogPage.css";
 import { ReactComponent as BACK_ARROW } from "../../Image_SVG_Resources/BackArrow.svg";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,10 @@ import { useAppContext } from "../../context";
 import ImageUploader from "../ImageUploader/ImageUploader";
 import CustomDatePicker from "../DatePicker/CustomDatePicker";
 import CategorySelector from "../CategorySelector/CategorySelector";
+import EmailField from "../Popup/EmailField";
+import { Button } from "../Button/Button";
+import { AddBlog } from "../../FetchInformation";
+import LoginPopup from "../Popup/LoginPopup";
 
 const authorValidations = [
   {
@@ -43,7 +47,6 @@ const titleValidations = [
   },
 ];
 
-
 const descriptionValidations = [
   {
     text: "მინიმუმ 4 სიმბოლო",
@@ -57,6 +60,30 @@ const descriptionValidations = [
 const AddBlogPage = () => {
   const navigate = useNavigate();
   const { user } = useAppContext();
+  const [title, setTitle] = useState("");
+  const [titleError, setTitleError] = useState(true);
+
+  const [author, setAuthor] = useState("");
+  const [authorError, setAuthorError] = useState(true);
+
+  const [description, setDescription] = useState(false);
+  const [descriptionError, setDescriptionError] = useState(true);
+
+  const [date, setDate] = useState(null);
+  const [dateError, setDateError] = useState(false);
+
+  const [categories, setCategories] = useState([]);
+  const [categoriesError, setCategoriesError] = useState(true);
+
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState(false);
+
+  const [image, setImage] = useState(null);
+
+  const [breakDefault, setBreakDefault] = useState(false);
+
+  const [done, setDone] = useState(false);
+
   const handleNavigateToHome = () => {
     navigate(`/`);
     window.scrollTo({
@@ -71,39 +98,139 @@ const AddBlogPage = () => {
     }
   }, [user]);
 
-  return (
-    <div className="add-blog-page-container">
-      <div className="back-home" onClick={handleNavigateToHome}>
-        <BACK_ARROW className={`back-arrow`} />
-      </div>
+  const handleSubmit = () => {
+    if (!breakDefault) {
+      setBreakDefault(true);
+    }
+    if (canSubmit()) {
+      HandleAddBlog();
+    }
+  };
 
-      <div className="add-blog-container">
-        <div className="add-blog-text">ბლოგის დამატება</div>
-        <ImageUploader />
-        <div className="author-title-row">
-          <InputField
-            placeholder={"შეიყვანეთ ავტორი"}
-            labe_text={"ავტორი *"}
-            validations={authorValidations}
-          />
-          <InputField
-            placeholder={"შეიყვანეთ სათაური"}
-            labe_text={"სათაური *"}
-            validations={titleValidations}
-          />
+  const canSubmit = () => {
+    return (
+      !titleError &&
+      title !== "" &&
+      !descriptionError &&
+      description !== "" &&
+      !authorError &&
+      author !== "" &&
+      !categoriesError &&
+      categories.length !== 0 &&
+      !emailError &&
+      !dateError &&
+      date !== null &&
+      image !== null
+    );
+  };
+
+  const HandleAddBlog = () => {
+    const blogData = new FormData();
+    blogData.append("title", title);
+    blogData.append("description", description);
+    blogData.append("image", image);
+    blogData.append("author", author);
+    const tmp = date.toLocaleDateString().split("/");
+    const dateString = tmp[2] + "-" + tmp[0] + "-" + tmp[1];
+    blogData.append("publish_date", dateString);
+    blogData.append("categories", JSON.stringify(categories));
+    blogData.append("email", email);
+
+    // console.log("title:", title);
+    // console.log("description:", description);
+    // console.log("image:", image);
+    // console.log("author:", author);
+    // console.log("publish_date:", date.toISOString().split('T')[0]);
+    // console.log("categories:", JSON.stringify(categories));
+    // console.log("email:", email);
+    // console.log(blogData)
+
+    AddBlog(blogData)
+      .then((answer) => {
+        if (answer) {
+          setDone(true);
+        }
+        else{
+          alert("try again")
+        }
+      })
+      .catch((error) => console.error("Error:", error));
+
+
+  };
+
+  return (
+    <>
+      {done ? <LoginPopup addBlog={true} /> : ""}
+
+      <div className="add-blog-page-container">
+        <div className="back-home" onClick={handleNavigateToHome}>
+          <BACK_ARROW className={`back-arrow`} />
         </div>
-        <InputField
-          placeholder={"შეიყვანეთ აღწერა"}
-          labe_text={"აღწერა *"}
-          validations={descriptionValidations}
-          isTextArea={true}
-        />
-        <div className="date-category-row">
-          <CustomDatePicker />
-          <CategorySelector label_text={"აირჩიეთ კატეგორია"}/>
+
+        <div className="add-blog-container">
+          <div className="add-blog-text">ბლოგის დამატება</div>
+          <ImageUploader setValueParent={setImage} />
+          <div className="author-title-row">
+            <InputField
+              placeholder={"შეიყვანეთ ავტორი"}
+              labe_text={"ავტორი *"}
+              validations={authorValidations}
+              setValueParent={setAuthor}
+              setErrorParent={setAuthorError}
+              breakDefault={breakDefault}
+            />
+            <InputField
+              placeholder={"შეიყვანეთ სათაური"}
+              labe_text={"სათაური *"}
+              validations={titleValidations}
+              setValueParent={setTitle}
+              setErrorParent={setTitleError}
+              breakDefault={breakDefault}
+            />
+          </div>
+          <InputField
+            placeholder={"შეიყვანეთ აღწერა"}
+            labe_text={"აღწერა *"}
+            validations={descriptionValidations}
+            isTextArea={true}
+            setValueParent={setDescription}
+            setErrorParent={setDescriptionError}
+            breakDefault={breakDefault}
+          />
+          <div className="date-category-row">
+            <CustomDatePicker
+              setValueParent={setDate}
+              setErrorParent={setDateError}
+              breakDefault={breakDefault}
+            />
+            <CategorySelector
+              label_text={"აირჩიეთ კატეგორია"}
+              setValueParent={setCategories}
+              setErrorParent={setCategoriesError}
+              breakDefault={breakDefault}
+            />
+          </div>
+
+          <div className="date-category-row">
+            <EmailField
+              setValueParent={setEmail}
+              setErrorParent={setEmailError}
+              addBlog={true}
+            />
+          </div>
+
+          <div className="last-row">
+            <Button
+              text={"გამოქვეყნება"}
+              addBlog={true}
+              isDisabled={!canSubmit()}
+              onClick={handleSubmit}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

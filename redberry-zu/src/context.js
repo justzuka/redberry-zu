@@ -66,7 +66,7 @@ export const AppProvider = ({ children }) => {
         setBlogs(
           blogsData.filter((blog) => {
             const publishDate = new Date(blog.publish_date);
-            return publishDate < today.setDate(today.getDate() - 1);
+            return publishDate < today.setDate(today.getDate());
           })
         );
       } catch (error) {
@@ -95,7 +95,6 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     // Save selectedCategories to localStorage
     if (selectedCaregoriesFinishSet) {
-      console.log(selectedCategories);
       localStorage.setItem(
         "selectedCategories",
         JSON.stringify(selectedCategories)

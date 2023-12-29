@@ -2,6 +2,7 @@
 :root {
   --background-color: #fbfaff;
   --button-color: #5d37f3;
+  --button-color-dark: #4e2cda;
   --mult: 1920 / 1440;
   --main-text-color: #1a1a1f;
   --date-text-color: #85858d;

@@ -27,6 +27,13 @@
   height: 100%;
 }
 
+.blog-image-full {
+  object-fit: cover;
+  
+  height: 100%;
+  width: calc(408px * var(--mult));
+}
+
 .author-text {
   font-weight: 500;
   font-size: calc(16px * var(--mult));
@@ -62,6 +69,8 @@
   display: block; 
   -webkit-box-orient: inline-axis; 
   height: fit-content;
+  word-wrap: break-word;
+  word-break: break-all;
 
   font-weight: 700;
   font-size: calc(32px * var(--mult));
@@ -76,7 +85,9 @@
   display: -webkit-box;
   -webkit-line-clamp: 2; 
   -webkit-box-orient: vertical;
+  word-wrap: break-word;
 
+  word-break: break-all;
   font-weight: 400;
   font-size: calc(16px * var(--mult));
   line-height: calc(28px * var(--mult));

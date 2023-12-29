@@ -29,10 +29,10 @@ const BlogItem = ({
   return (
     <div className={`blog-item ${isBlogPage ? 'blog-item-page' : ''}`}>
       <div className="image-container">
-        <img src={image} className="blog-image" alt="blog" />
+        <img src={image} className={`${!isBlogPage ? 'blog-image-full' : 'blog-image'}`} alt="blog" />
       </div>
       <div className={`author-text ${isBlogPage ? 'author-text-page' : ''} `}>{author}</div>
-      <div className="publish-date-text">{isBlogPage ? `${publish_date} • ${email}`  : publish_date}</div>
+      <div className="publish-date-text">{isBlogPage ? email ? `${publish_date} • ${email}` : publish_date  : publish_date}</div>
       <div className={`title-text ${isBlogPage ? 'title-text-page' : ''}`}>{title}</div>
       <Filter categories={categories} />
       <div className={`blog-description-text ${isBlogPage ? 'blog-description-text-page' : ''}`}>{description}</div>

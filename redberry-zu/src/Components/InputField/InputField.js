@@ -2,7 +2,15 @@ import React, { useEffect, useState } from "react";
 import "./InputField.css";
 import Validation from "./Validation";
 
-const InputField = ({ placeholder, labe_text, validations, isTextArea }) => {
+const InputField = ({
+  placeholder,
+  labe_text,
+  validations,
+  isTextArea,
+  setValueParent,
+  setErrorParent,
+  breakDefault,
+}) => {
   const [isDefault, setIsDefault] = useState(true);
   const [value, setValue] = useState("");
   const [change, setChange] = useState(false);
@@ -13,12 +21,37 @@ const InputField = ({ placeholder, labe_text, validations, isTextArea }) => {
       setIsDefault(false);
     }
     setValue(e.target.value);
+
+    localStorage.setItem(labe_text + placeholder, e.target.value);
+
+    if (setValueParent !== undefined) {
+      setValueParent(e.target.value);
+    }
     setChange(!change);
   };
 
   useEffect(() => {
+    const storedString = localStorage.getItem(labe_text + placeholder);
+    if (storedString) {
+      handleChange({ target: { value: storedString } });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (breakDefault && isDefault) {
+      handleChange({ target: { value: value } });
+    }
+  }, [breakDefault]);
+
+  useEffect(() => {
     setErrors(validations.map((v) => false));
   }, []);
+
+  useEffect(() => {
+    if (setErrorParent !== undefined) {
+      setErrorParent(!(errors.filter((e) => e).length === 0));
+    }
+  }, [errors]);
 
   const setErrorIndex = (index, v) => {
     setErrors((prevErrors) => {
@@ -29,7 +62,9 @@ const InputField = ({ placeholder, labe_text, validations, isTextArea }) => {
   };
 
   return (
-    <div className={`input-field-container ${isTextArea ? 'is-text-area' : ''}`}>
+    <div
+      className={`input-field-container ${isTextArea ? "is-text-area" : ""}`}
+    >
       <label className="input-label">{labe_text}</label>
       {isTextArea ? (
         <textarea

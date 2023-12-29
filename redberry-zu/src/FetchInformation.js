@@ -1,5 +1,5 @@
 const token =
-  "e22393ad81c5b10c5dc90b482b8044baf68ee183dc2b811d538d7319a89d0357";
+  "cca7f7710543ee1dc92911a244d0692b0080fd4477e44c40c61992d3c09d52ce";
 
 const GetBlogs = async () => {
   try {
@@ -21,6 +21,24 @@ const GetBlogs = async () => {
     const data = await response.json();
 
     return data.data;
+  } catch (error) {
+    console.error("Error making API request:", error);
+    throw error;
+  }
+};
+
+const AddBlog = async (blogData) => {
+  try {
+    const response = await fetch("https://api.blog.redberryinternship.ge/api/blogs", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: blogData,
+    });
+
+    return response.status === 204;
   } catch (error) {
     console.error("Error making API request:", error);
     throw error;
@@ -105,4 +123,6 @@ const Login = async (email) => {
   }
 };
 
-export { GetBlogs, GetCategories, GetBlogById, Login };
+
+
+export { GetBlogs, GetCategories, GetBlogById, Login, AddBlog };
