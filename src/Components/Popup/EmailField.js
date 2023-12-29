@@ -34,6 +34,9 @@ const EmailField = ({ addBlog, setValueParent, setErrorParent }) => {
   };
 
   useEffect(() => {
+    if (!addBlog) {
+      return;
+    }
     const storedString = localStorage.getItem("emailField");
     if (storedString) {
       handleChange({ target: { value: storedString } });
@@ -52,7 +55,9 @@ const EmailField = ({ addBlog, setValueParent, setErrorParent }) => {
     if (setValueParent !== undefined) {
       setValueParent(email);
     }
-    localStorage.setItem("emailField", email);
+    if (addBlog) {
+      localStorage.setItem("emailField", email);
+    }
   }, [email]);
 
   const checkEndsWithRedberry = () => {

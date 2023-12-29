@@ -19,6 +19,7 @@
   font-weight: 500;
   font-size: calc(14px * var(--mult));
   line-height: calc(20px * var(--mult));
+  text-align: start;
 }
 
 .email-field:focus {
