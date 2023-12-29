@@ -1,6 +1,6 @@
 # Redberry-ZU
 
-Redberry-ZU is a web app that allows users to create and add blogs. It is a bootcamp project built with React, React Router, and React Datepicker.
+Redberry-ZU is a web app that allows users to create and add blogs. It is a bootcamp project built with React.
 
 ## Demo
 
